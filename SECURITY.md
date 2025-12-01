@@ -6,7 +6,7 @@ Supported are the latest released version as well as the latest preview/rc versi
 
 ## Reporting a Vulnerability
 
-Security issues and bugs should be reported privately to Christoph. wille AT gmail.com. Please note that
+Security issues and bugs should be reported privately to Christoph.wille AT gmail.com. Please note that
 we cannot guarantee a response time (*), although we will strive to get back to you within one business day. If you
 do not hear back from Chris within a week, alternatively, you can try to contact siegfriedpammer AT gmail.com.
 
