@@ -304,11 +304,21 @@ namespace ICSharpCode.ILSpy.Docking
 
 		public bool BeforeInsertDocument(LayoutRoot layout, LayoutDocument anchorableToShow, ILayoutContainer destinationContainer)
 		{
+			// Find or use the default LayoutDocumentPane for inserting documents
+			var documentPane = layout.Descendents().OfType<LayoutDocumentPane>().FirstOrDefault();
+			if (documentPane != null)
+			{
+				documentPane.Children.Add(anchorableToShow);
+				return true;
+			}
+			// If no document pane exists, let AvalonDock handle it with default behavior
 			return false;
 		}
 
 		public void AfterInsertDocument(LayoutRoot layout, LayoutDocument anchorableShown)
 		{
+			anchorableShown.IsActive = true;
+			anchorableShown.IsSelected = true;
 		}
 
 		// Dummy property to make the XAML designer happy, the model is provided by the AvalonDock PaneStyleSelectors, not by the DockWorkspace, but the designer assumes the data context in the PaneStyleSelectors is the DockWorkspace.
