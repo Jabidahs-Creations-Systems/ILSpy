@@ -304,6 +304,14 @@ namespace ICSharpCode.ILSpy.Docking
 
 		public bool BeforeInsertDocument(LayoutRoot layout, LayoutDocument anchorableToShow, ILayoutContainer destinationContainer)
 		{
+			// Find or use the default LayoutDocumentPane for inserting documents
+			var documentPane = layout.Descendents().OfType<LayoutDocumentPane>().FirstOrDefault();
+			if (documentPane != null)
+			{
+				documentPane.Children.Add(anchorableToShow);
+				return true;
+			}
+			// If no document pane exists, let AvalonDock handle it with default behavior
 			return false;
 		}
 
