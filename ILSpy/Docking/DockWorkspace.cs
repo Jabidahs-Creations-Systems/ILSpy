@@ -317,6 +317,8 @@ namespace ICSharpCode.ILSpy.Docking
 
 		public void AfterInsertDocument(LayoutRoot layout, LayoutDocument anchorableShown)
 		{
+			anchorableShown.IsActive = true;
+			anchorableShown.IsSelected = true;
 		}
 
 		// Dummy property to make the XAML designer happy, the model is provided by the AvalonDock PaneStyleSelectors, not by the DockWorkspace, but the designer assumes the data context in the PaneStyleSelectors is the DockWorkspace.
